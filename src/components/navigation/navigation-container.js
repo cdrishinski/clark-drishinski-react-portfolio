@@ -10,7 +10,9 @@ export default class NavigationComponent extends Component {
             <div>
                 <NavLink exact to="/">Home</NavLink>
                 <NavLink  to="/about-me">About</NavLink>
-                <button>Contact</button>
+                <NavLink  to="/contact">Contact</NavLink>
+               
+
                 <button>Blog</button>
                 {/* below: checks if logged in as admin, then if logged in as admin lets you add blog */}
                 {true ? <button>Add Blog</button> : null }    
