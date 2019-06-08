@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import PortfolioContainer from './portfolio/portfolio-container';
-import NavigationContainer from './navigation/navigation-container';
+import NavigationComponent from './navigation/navigation-container';
 import Home from './pages/home';
 import About from './pages/about';
 
@@ -20,14 +20,13 @@ export default class App extends Component {
         <Router>
           <div>
             <NavigationComponent />
-
+            {/* Routes are declared in the <Switch> tags  */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route  path="/about-me" component={About} />
             </Switch>
           </div>
         </Router>
-        <NavigationContainer />
         <h1>Clark Drishinski's Portfolio</h1> 
         <div>
           {moment().format('MMMM Do YYYY, h:mm:ss a')}
