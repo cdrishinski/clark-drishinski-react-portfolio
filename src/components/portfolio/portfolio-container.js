@@ -11,11 +11,10 @@ export default class PortfolioContainer extends Component {
             pageTitle: "Welcome to my portfolio",
             isloading: false,
             data: [
-                {title: "Primerica", category: "Insurance"},
-                {title: "MACU", category: "Banking"},
-                {title: "LPL FINANCIAL", category: "Investments"},
-                {title: "Keeler Thomas", category: "Financial Planning"},
-                {title: "Foursteps", category: "Financial Planning"}
+                {title: "Fenway Media One", category: "Marketing", slug: "fenwaymediaone"},
+                {title: "Outreach Pawsibilities", category: "Non-Profit", slug: "outreachpawsibilities"},
+                {title: "FourSteps, LLC", category: "Fin-Tech", slug: "foursteps"},
+               
             ]
         }
         this.handleFilter = this.handleFilter.bind(this)
@@ -31,7 +30,7 @@ handleFilter (filter){
 
 portfolioItems () {
     return this.state.data.map(item => {
-        return <PortfolioItem title={item.title} />
+        return <PortfolioItem title={item.title} slug={item.slug} />
     } )
 }
 
@@ -45,11 +44,10 @@ portfolioItems () {
             <div>
                 <h2>{this.state.pageTitle}</h2>
 
-                <button onClick={() => this.handleFilter("Insurance")}>Insurance</button>
-                <button onClick={() => this.handleFilter("Banking")}>Banking</button>
-                <button onClick={() => this.handleFilter("Investments")}>Investments</button>
-                <button onClick={() => this.handleFilter("Financial Planning")}>Financial Planning</button>
-
+                <button onClick={() => this.handleFilter("Marketing")}>Marketing</button>
+                <button onClick={() => this.handleFilter("Non-Profit")}>Non-Profit</button>
+                <button onClick={() => this.handleFilter("Fin-Tech")}>Fin-Tech</button>
+             
                 {this.portfolioItems()}
 
             </div>
