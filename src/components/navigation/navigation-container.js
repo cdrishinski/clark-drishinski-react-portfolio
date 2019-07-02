@@ -8,14 +8,13 @@ export default class NavigationComponent extends Component {
     render() {
         return (
             <div>
-                <NavLink exact to="/">Home</NavLink>
-                <NavLink  to="/about-me">About</NavLink>
-                <NavLink  to="/contact">Contact</NavLink>
-               
-
-                <button>Blog</button>
-                {/* below: checks if logged in as admin, then if logged in as admin lets you add blog */}
-                {true ? <button>Add Blog</button> : null }    
+                <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
+                <NavLink to="/about-me" activeClassName="nav-link-active">About</NavLink>
+                <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
+                <NavLink to="/blog" activeClassName="nav-link-active">Blog</NavLink>
+            
+               {/* below: checks if logged in as admin, then if logged in as admin lets you add blog */}
+                {/* {true ? <button>Add Blog</button> : null }     */}
             </div>
         )
     }
