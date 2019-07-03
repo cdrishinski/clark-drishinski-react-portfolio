@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import PortfolioItem from './portfolio-item';
 
@@ -10,14 +11,9 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: "Welcome to my portfolio",
             isloading: false,
-            data: [
-                {title: "Fenway Media One", category: "Marketing", slug: "fenwaymediaone"},
-                {title: "Outreach Pawsibilities", category: "Non-Profit", slug: "outreachpawsibilities"},
-                {title: "FourSteps, LLC", category: "Fin-Tech", slug: "foursteps"},
-               
-            ]
+            data: []
         }
-        this.handleFilter = this.handleFilter.bind(this)
+        this.handleFilter = this.handleFilter.bind(this)  
     }
 
 handleFilter (filter){
@@ -28,12 +24,41 @@ handleFilter (filter){
     })
 }
 
+getPortfolioItems() {
+
+  // Make a request for a user with a given ID
+  axios
+    .get('https://clarkjames.devcamp.space/portfolio/portfolio_items')
+    .then(response => {
+      // handle success
+      console.log("data info", response.data)
+      this.setState({
+          data: response.data.portfolio_items
+      })
+    })
+    .catch(error => {
+      // handle error
+      console.log(error);
+    })
+  }
+
 portfolioItems () {
+   
+
     return this.state.data.map(item => {
-        return <PortfolioItem title={item.title} slug={item.slug} />
-    } )
+      
+        return (
+            <PortfolioItem 
+                key={item.id} 
+               item={item}
+            />
+            )
+    })
 }
 
+componentDidMount(){
+    this.getPortfolioItems();
+}
 
     render() {
         if(this.state.isloading){
