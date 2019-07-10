@@ -43,8 +43,6 @@ getPortfolioItems() {
   }
 
 portfolioItems () {
-   
-
     return this.state.data.map(item => {
       
         return (
@@ -72,8 +70,8 @@ componentDidMount(){
                 <button onClick={() => this.handleFilter("Marketing")}>Marketing</button>
                 <button onClick={() => this.handleFilter("Non-Profit")}>Non-Profit</button>
                 <button onClick={() => this.handleFilter("Fin-Tech")}>Fin-Tech</button>
-             
-                {this.portfolioItems()}
+                <div className='portfolio-items-wrapper'>{this.portfolioItems()}</div>
+                
 
             </div>
         )

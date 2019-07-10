@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 export default function (props) {
      //Data that we'll need:
@@ -8,17 +8,26 @@ export default function (props) {
     //-description: description
     //-id: id
 
-    const { thumb_image_url, id, description, logo } = props.item;
+    const { thumb_image_url, id, description, logo_url } = props.item;
 
     return (
-        <div>
-            <img src={thumb_image_url} />
-            <img src={logo} />
-            <div>{description}</div>
-            <Link to={`/portfolio/${id}`}><h3>{props.title}</h3></Link>
+        <div className="portfolio-item-wrapper">
+            <div 
+                className="portfolio-img-background"
+                style={{
+                    backgroundImage: "url(" + thumb_image_url + ")"
+                }}    
+            />
+           
+            <div className="img-text-wrapper">
+               <div className="logo-wrapper">
+                    <img src={logo_url} />
+                </div> 
+                <div className="subtitle">{description}</div>
 
+            </div>
 
         </div>
-    )
+    );
 }
 
