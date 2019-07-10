@@ -1,19 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 
-export default function (props) {
+export default class PortfolioItem extends Component {
      //Data that we'll need:
     //-backgroundimage: thumb_image_url
     //-logo
     //-description: description
     //-id: id
+    constructor (props) {
+        super(props);
 
-    const { thumb_image_url, id, description, logo_url } = props.item;
+        this.state= {
+            portfolioItemClass: ""
+        };
+    }
+
+    handleMouseEnter(){
+        this.setState({portfolioItemClass: 'image-blur'})
+    }
+
+    handleMouseLeave(){
+        this.setState({portfolioItemClass: ''})
+    }
+
+    render () {
+    const { thumb_image_url, id, description, logo_url } = this.props.item;
 
     return (
-        <div className="portfolio-item-wrapper">
+        <div className="portfolio-item-wrapper"
+            onMouseEnter={() => this.handleMouseEnter()}
+            onMouseLeave={() => this.handleMouseLeave()}
+        >
             <div 
-                className="portfolio-img-background"
+                className={"portfolio-img-background " + this.state.portfolioItemClass}
                 style={{
                     backgroundImage: "url(" + thumb_image_url + ")"
                 }}    
@@ -26,8 +45,8 @@ export default function (props) {
                 <div className="subtitle">{description}</div>
 
             </div>
-
         </div>
     );
+    }
 }
 

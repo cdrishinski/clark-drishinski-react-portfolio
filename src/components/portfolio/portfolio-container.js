@@ -64,16 +64,16 @@ componentDidMount(){
         }
 
         return (
-            <div>
-                <h2>{this.state.pageTitle}</h2>
-
-                <button onClick={() => this.handleFilter("Marketing")}>Marketing</button>
-                <button onClick={() => this.handleFilter("Non-Profit")}>Non-Profit</button>
-                <button onClick={() => this.handleFilter("Fin-Tech")}>Fin-Tech</button>
-                <div className='portfolio-items-wrapper'>{this.portfolioItems()}</div>
+                <div className='portfolio-items-wrapper'>
+                   <button className="btn" onClick={() => this.handleFilter("Marketing")}>Marketing</button>
+                     <button className="btn" onClick={() => this.handleFilter("Non-Profit")}>Non-Profit</button>
+                     <button className="btn" onClick={() => this.handleFilter("Fin-Tech")}>Fin-Tech</button>
+                   
+                    {this.portfolioItems()}
+                </div>
                 
 
-            </div>
+       
         )
     }
 }
