@@ -69,6 +69,7 @@ componentDidMount(){
                      <button className="btn" onClick={() => this.handleFilter("Non-Profit")}>Non-Profit</button>
                      <button className="btn" onClick={() => this.handleFilter("Fin-Tech")}>Fin-Tech</button>
                    
+                
                     {this.portfolioItems()}
                 </div>
                 
